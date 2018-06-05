@@ -5,8 +5,8 @@
 
 
 
-\!\[feature X\]\(desc.gif\)
-
+\!\[feature X\]\(images/desc.gif\)
+![Alt Text](./images/desc.gif)
 
 
 ## Overview

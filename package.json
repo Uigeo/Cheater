@@ -10,6 +10,11 @@
     "categories": [
         "Other"
     ],
+    "icon": "images/cheatsheet_icon.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Uigeo/Cheater.git"
+    },
     "activationEvents": [
         "onCommand:extension.sayHello"
     ],
