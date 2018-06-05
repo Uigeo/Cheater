@@ -1,0 +1,708 @@
+{
+    "JavaScript": {
+        "Array Properties": {
+            "constructor": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/Constructor",
+                "desc": "The Function constructor creates a new Function object. Calling the constructor directly can create functions dynamically, but suffers from security and similar (but far less significant) performance issues similar to eval. However, unlike eval, the Function constructor allows executing code in the global scope, prompting better programming habits and allowing for more efficient code minification.",
+                "code": "\rvar sum = new Function('a', 'b', 'return a + b');\n console.log(sum(2, 6));\n // expected output: 8"
+            },
+            "length": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/Length",
+                "desc": "The length property indicates the number of arguments expected by the function.",
+                "code": "function func1() {} \n function func2(a, b) {} \nconsole.log(func1.length); \n// expected output: 0 \n console.log(func2.length); \n// expected output: 2"
+            },
+            "prototype": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/prototype",
+                "desc": "The Array.prototype property represents the prototype for the Array constructor and allows you to add new properties and methods to all Array objects.",
+                "code": "// If JavaScript doesn't provide a first() method natively, \n// add a new method returning the first element of an array. \n if (!Array.prototype.first) { \n Array.prototype.first = function() {\n return this[0];\n }\n }"
+            }
+        },
+        "Array Methods": {
+            "concat()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/concat",
+                "desc": "The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.",
+                "code": "var array1 = ['a', 'b', 'c'];\n var array2 = ['d', 'e', 'f']; \n console.log(array1.concat(array2));\n // expected output: Array [\"a\", \"b\", \"c\", \"d\", \"e\", \"f\"]"
+            },
+            "indexOf()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/indexOf",
+                "desc": "The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.",
+                "code": "var beasts = ['ant', 'bison', 'camel', 'duck', 'bison']; \n console.log(beasts.indexOf('bison')); \n // expected output: 1 \n // start from index 2 \n console.log(beasts.indexOf('bison', 2)); \n// expected output: 4 \nconsole.log(beasts.indexOf('giraffe')); \n// expected output: -1"
+            },
+            "join()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/join",
+                "desc": "The join() method joins all elements of an array (or an array-like object) into a string and returns this string.",
+                "code": "var elements = ['Fire', 'Wind', 'Rain']; \n console.log(elements.join()); \n// expected output: Fire,Wind,Rain \nconsole.log(elements.join('')); \n// expected output: FireWindRain \nconsole.log(elements.join('-')); \n// expected output: Fire-Wind-Rain"
+            },
+            "lastIndexOf()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/lastIndexOf",
+                "desc": "The lastIndexOf() method returns the last index at which a given element can be found in the array, or -1 if it is not present. The array is searched backwards, starting at fromIndex.",
+                "code": "var animals = ['Dodo', 'Tiger', 'Penguin', 'Dodo']; \n console.log(animals.lastIndexOf('Dodo')); \n// expected output: 3 \nconsole.log(animals.lastIndexOf('Tiger')); \n// expected output: 1"
+            },
+            "pop()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/pop",
+                "desc": "The pop() method removes the last element from an array and returns that element. This method changes the length of the array.",
+                "code": "var plants = ['broccoli', 'cauliflower', 'cabbage', 'kale', 'tomato']; \nconsole.log(plants.pop()); \n// expected output: \"tomato\" \nconsole.log(plants); \n// expected output: Array [\"broccoli\", \"cauliflower\", \"cabbage\", \"kal\"] \nplants.pop(); \nconsole.log(plants); \n// expected output: Array [\"broccoli\", \"cauliflower\", \"cabbage\"]"
+            },
+            "push()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/push",
+                "desc": "The push() method adds one or more elements to the end of an array and returns the new length of the array.",
+                "code": "var animals = ['pigs', 'goats', 'sheep']; \n console.log(animals.push('cows')); \n// expected output: 4 \nconsole.log(animals); \n// expected output: Array [\"pigs\", \"goats\", \"sheep\", \"cows\"] \n animals.push('chickens'); \nconsole.log(animals); \n// expected output: Array [\"pigs\", \"goats\", \"sheep\", \"cows\", \"chickens\"]"
+            },
+            "reverse()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/reverse",
+                "desc": "The reverse() method reverses an array in place. The first array element becomes the last, and the last array element becomes the first.",
+                "code": "var array1 = ['one', 'two', 'three']; \n var reversed = array1.reverse(); \nconsole.log(array1); \n// expected output: Array ['three', 'two', 'one'] \nconsole.log(reversed); \n// expected output: Array ['three', 'two', 'one']"
+            },
+            "shift()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/shift",
+                "desc": "The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.",
+                "code": "var array1 = [1, 2, 3];\n var firstElement = array1.shift(); \nconsole.log(array1); \n// expected output: Array [2, 3] \nconsole.log(firstElement); \n// expected output: 1"
+            },
+            "slice()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/slice",
+                "desc": "The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.",
+                "code": "var animals = ['ant', 'bison', 'camel', 'duck', 'elephant']; \nconsole.log(animals.slice(2)); \n// expected output: Array [\"camel\", \"duck\", \"elephant\"] \nconsole.log(animals.slice(2, 4)); \n// expected output: Array [\"camel\", \"duck\"] \nconsole.log(animals.slice(1, 5)); \n// expected output: Array [\"bison\", \"camel\", \"duck\", \"elephant\"]"
+            },
+            "sort()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/sort",
+                "desc": "The sort() method sorts the elements of an array in place and returns the array. The sort is not necessarily stable. The default sort order is according to string Unicode code points. \nThe time and space complexity of the sort cannot be guaranteed as it is implementation dependent.",
+                "code": "var months = ['March', 'Jan', 'Feb', 'Dec']; \n months.sort(); \nconsole.log(months); \n// expected output: Array [\"Dec\", \"Feb\", \"Jan\", \"March\"] \nvar array1 = [1, 30, 4, 21]; \narray1.sort(); \nconsole.log(array1); \n// expected output: Array [1, 21, 30, 4]"
+            },
+            "splice()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/splice",
+                "desc": "The splice() method changes the contents of an array by removing existing elements and/or adding new elements.",
+                "code": "var months = ['Jan', 'March', 'April', 'June']; \nmonths.splice(1, 0, 'Feb'); \n// inserts at 1st index position \nconsole.log(months); \n// expected output: Array ['Jan', 'Feb', 'March', 'April', 'June'] \nmonths.splice(4, 1, 'May'); \n// replaces 1 element at 4th index \nconsole.log(months); \n// expected output: Array ['Jan', 'Feb', 'March', 'April', 'May']"
+            },
+            "toString()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/toString",
+                "desc": "The toString() method returns a string representing the specified array and its elements.",
+                "code": "var array1 = [1, 2, 'a', '1a']; \nconsole.log(array1.toString()); \n// expected output: \"1,2,a,1a\""
+            },
+            "unshift()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/unshift",
+                "desc": "The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.",
+                "code": "var array1 = [1, 2, 3]; \n console.log(array1.unshift(4, 5)); \n// expected output: 5 \nconsole.log(array1); \n// expected output: Array [4, 5, 1, 2, 3]"
+            },
+            "valueOf()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/valueOf",
+                "desc": "The valueOf() method returns the primitive value of the specified object.",
+                "code": "function MyNumberType(n) {\n  this.number = n;\n } \nMyNumberType.prototype.valueOf = function() { \n return this.number; \n}; \nconst object1 = new MyNumberType(4); \nconsole.log(object1 + 3); \n// expected output: 7"
+            }
+        },
+        "Math Properties": {
+            "E": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/E",
+                "desc": "The Math.E property represents the base of natural logarithms, e, approximately 2.718. \nMath.E=e≈2.718",
+                "code": "function compoundOneYear(interestRate, currentVal) { \n return currentVal * (Math.E ** interestRate); \n} \nconsole.log(Math.E); \n// expected output: 2.718281828459045 \n console.log((1 + (1/1000000)) ** 1000000); \n// expected output: 2.718280469 (approximately) \nconsole.log(compoundOneYear(0.05, 100)); \n// expected output: 105.12710963760242"
+            },
+            "LN2": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/LN2",
+                "desc": "The Math.LN2 property represents the natural logarithm of 2, approximately 0.693: \nMath.LN2=ln(2)≈0.693",
+                "code": "function getNatLog2() { \n  return Math.LN2; \n } \nconsole.log(getNatLog2()); \n// expected output: 0.6931471805599453"
+            },
+            "LN10": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/LN10",
+                "desc": "The Math.LN10 property represents the natural logarithm of 10, approximately 2.302: \nMath.LN10=ln(10)≈2.302",
+                "code": "function getNatLog10() {\n  return Math.LN10; \n } \nconsole.log(getNatLog10()); \n// expected output: 2.302585092994046"
+            },
+            "LOG2E": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/LOG2E",
+                "desc": "The Math.LOG2E property represents the base 2 logarithm of e, approximately 1.442: \nMath.LOG2E=log2(e)≈1.442",
+                "code": "function getLog2e() { \n return Math.LOG2E; \n} \nconsole.log(getLog2e()); \n// expected output: 1.4426950408889634"
+            },
+            "LOG10E": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/LOG10E",
+                "desc": "The Math.LOG10E property represents the base 10 logarithm of e, approximately 0.434: \nMath.LOG10E=log10(e)≈0.434",
+                "code": "function getLog10e() { \n return Math.LOG10E; \n} \nconsole.log(getLog10e()); \n// expected output: 0.4342944819032518"
+            },
+            "PI": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/PI",
+                "desc": "The Math.PI property represents the ratio of the circumference of a circle to its diameter, approximately 3.14159: \n Math.PI=π≈3.14159",
+                "code": "function calculateCircumference(radius) { \n return 2 * Math.PI * radius; \n} \nconsole.log(Math.PI); \n// expected output: 3.141592653589793 \nconsole.log(calculateCircumference(10)); \n// expected output: 62.83185307179586"
+            },
+            "SQRT1_2": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/SQRT1_2",
+                "desc": "Returns the square root of 1/2 (approx. 0.707)",
+                "code": "function getRoot1Over2() { \n  return Math.SQRT1_2; \n} \nconsole.log(getRoot1Over2()); \n// expected output: 0.7071067811865476"
+            },
+            "SQRT2": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/SQRT2",
+                "desc": "Returns the square root of 2 (approx. 1.414)",
+                "code": "function getRoot2() { \n  return Math.SQRT2; \n } \nconsole.log(getRoot2()); \n // expected output: 1.4142135623730951"
+            }
+        },
+        "Math Methods": {
+            "abs(x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/abs",
+                "desc": "Returns the absolute value of x",
+                "code": "function difference(a, b) { \n  return Math.abs(a - b); \n} \n\n console.log(difference(3, 5)); \n// expected output: 2 \n\nconsole.log(difference(5, 3)); \n// expected output: 2 \n\nconsole.log(difference(1.23456, 7.89012)); \n// expected output: 6.6555599999999995"
+            },
+            "acos(x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/acos",
+                "desc": "Returns the arccosine of x, in radians",
+                "code": "// Calculates angle of a right-angle triangle in radians \nfunction calcAngle(adjacent, hypotenuse) { \n  return Math.acos(adjacent / hypotenuse); \n} \n\nconsole.log(calcAngle(8, 10)); \n// expected output: 0.6435011087932843 \n\nconsole.log(calcAngle(5, 3)); \n// expected output: NaN"
+            },
+            "asin(x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/asin",
+                "desc": "Returns the arcsine of x, in radians",
+                "code": "// Calculates angle of a right-angle triangle in radians \n function calcAngle(opposite, hypotenuse) { \n  return Math.asin(opposite / hypotenuse); \n} \n\nconsole.log(calcAngle(6, 10)); \n// expected output: 0.6435011087932844 \n\nconsole.log(calcAngle(5, 3)); \n// expected output: NaN"
+            },
+            "atan(x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/atan",
+                "desc": "Returns the arctangent of x as a numeric value between -PI/2 and PI/2 radians",
+                "code": "// Calculates angle of a right-angle triangle in radians \n function calcAngle(opposite, adjacent) { \n  return Math.atan(opposite / adjacent); \n} \n\nconsole.log(calcAngle(8, 10)); \n// expected output: 0.6747409422235527 \n\nconsole.log(calcAngle(5, 3)); \n// expected output: 1.0303768265243125"
+            },
+            "atan2(y,x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/atan2",
+                "desc": "Returns the arctangent of the quotient of its arguments",
+                "code": "function calcAngleDegrees(x, y) { \n   return Math.atan2(y, x) * 180 / Math.PI; \n} \n\nconsole.log(calcAngleDegrees(5, 5)); \n//expected output: 45 \n\nconsole.log(calcAngleDegrees(10, 10)); \n//expected output: 45 \n\nconsole.log(calcAngleDegrees(0, 10)); \n//expected output: 90"
+            },
+            "ceil(x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/ceil",
+                "desc": "Returns x, rounded upwards to the nearest integer",
+                "code": "console.log(Math.ceil(.95)); \n // expected output: 1 \n\nconsole.log(Math.ceil(4)); \n// expected output: 4 \n\n console.log(Math.ceil(7.004)); \n// expected output: 8 \n\nconsole.log(Math.ceil(-7.004)); \n// expected output: -7"
+            },
+            "cos(x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/cos",
+                "desc": "Returns the cosine of x (x is in radians)",
+                "code": "function getCircleX(radians, radius) { \n   return Math.cos(radians) * radius; \n} \n\nconsole.log(getCircleX(1, 10)); \n// expected output: 5.403023058681398 \n\nconsole.log(getCircleX(2, 10)); \n// expected output: -4.161468365471424 \n\nconsole.log(getCircleX(Math.PI, 10)); \n// expected output: -10"
+            },
+            "exp(x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/exp",
+                "desc": "Returns the value of Ex",
+                "code": "console.log(Math.exp(0)); \n // expected output: 1 \n\n console.log(Math.exp(1)); \n// expected output: 2.718281828459 (approximately) \n\nconsole.log(Math.exp(-1)); \n// expected output: 0.36787944117144233 \n\nconsole.log(Math.exp(2)); \n// expected output: 7.38905609893065"
+            },
+            "floor(x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/floor",
+                "desc": "Returns x, rounded downwards to the nearest integer",
+                "code": "console.log(Math.floor(5.95)); \n// expected output: 5 \n\n console.log(Math.floor(5.05)); \n// expected output: 5 \n\n console.log(Math.floor(5)); \n // expected output: 5 \n\n console.log(Math.floor(-5.05)); \n// expected output: -6"
+            },
+            "log(x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/log",
+                "desc": "Returns the natural logarithm (base E) of x",
+                "code": "function getBaseLog(x, y) { \n  return Math.log(y) / Math.log(x); \n} \n\n // 2 x 2 x 2 = 8 \n console.log(getBaseLog(2, 8)); \n// expected output: 3 \n\n // 5 x 5 x 5 x 5 = 625 \nconsole.log(getBaseLog(5, 625)); \n// expected output: 4"
+            },
+            "max(x,y,z,...,n)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/max",
+                "desc": "Returns the number with the highest value",
+                "code": "console.log(Math.max(1, 3, 2)); \n // expected output: 3 \n\n console.log(Math.max(-1, -3, -2)); \n// expected output: -1 \n\n var array1 = [1, 3, 2]; \n\n console.log(Math.max(...array1)); \n// expected output: 3"
+            },
+            "min(x,y,z,...,n)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/min",
+                "desc": "Returns the number with the lowest value",
+                "code": "console.log(Math.min(2, 3, 1)); \n // expected output: 1 \n\n console.log(Math.min(-2, -3, -1)); \n// expected output: -3 \n\n var array1 = [2, 3, 1]; \n\n console.log(Math.min(...array1)); \n // expected output: 1"
+            },
+            "pow(x,y)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/pow",
+                "desc": "Returns the value of x to the power of y",
+                "code": "console.log(Math.pow(7, 3)); \n // expected output: 343 \n\n console.log(Math.pow(4, 0.5)); \n // expected output: 2 \n\n console.log(Math.pow(7, -2)); \n // expected output: 0.02040816326530612 \n //                  (1/49) \n\n console.log(Math.pow(-7, 0.5)); \n // expected output: NaN"
+            },
+            "random()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/random",
+                "desc": "Returns a random number between 0 and 1",
+                "code": "function getRandomInt(max) { \n  return Math.floor(Math.random() * Math.floor(max)); \n } \n\n console.log(getRandomInt(3)); \n // expected output: 0, 1 or 2 \n\n console.log(getRandomInt(1)); \n // expected output: 0 \n\n console.log(Math.random()); \n // expected output: a number between 0 and 1"
+            },
+            "round(x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/round",
+                "desc": "Rounds x to the nearest integer",
+                "code": "function precisionRound(number, precision) { \n  var factor = Math.pow(10, precision); \n  return Math.round(number * factor) / factor; \n } \n\n console.log(precisionRound(1234.5678, 1)); \n // expected output: 1234.6 \n\n console.log(precisionRound(1234.5678, -1)); \n// expected output: 1230"
+            },
+            "sin(x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/sin",
+                "desc": "Returns the sine of x (x is in radians)",
+                "code": "function getCircleY(radians, radius) { \n  return Math.sin(radians) * radius; \n} \n\n console.log(getCircleY(1, 10)); \n // expected output: 8.414709848078965 \n\n console.log(getCircleY(2, 10)); \n// expected output: 9.092974268256818 \n\n console.log(getCircleY(Math.PI, 10)); \n // expected output: 1.2246467991473533e-15"
+            },
+            "sqrt(x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/sqrt",
+                "desc": "Returns the square root of x",
+                "code": "function calcHypotenuse(a, b) { \n  return(Math.sqrt((a * a) + (b * b))); \n } \n\n console.log(calcHypotenuse(3, 4)); \n// expected output: 5 \n\n console.log(calcHypotenuse(5, 12)); \n// expected output: 13 \n\n console.log(calcHypotenuse(0, 0)); \n// expected output: 0"
+            },
+            "tan(x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Math/tan",
+                "desc": "Returns the tangent of an angle",
+                "code": "function getTanFromDegrees(degrees) {\n  return Math.tan(degrees * Math.PI/180); \n} \n\n console.log(getTanFromDegrees(0)); \n// expected output: 0 \n\n console.log(getTanFromDegrees(45)); \n// expected output: 0.9999999999999999 \n\n console.log(getTanFromDegrees(90)); \n// expected output: 16331239353195370"
+            }
+        },
+        "Number Properties": {
+            "constructor": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/Constructor",
+                "desc": "Returns the function that created the Number object's prototype",
+                "code": "var sum = new Function('a', 'b', 'return a + b'); \n\n console.log(sum(2, 6)); \n// expected output: 8"
+            },
+            "MAX_VALUE": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/MAX_VALUE",
+                "desc": "Returns the largest number possible in JavaScript",
+                "code": "function multiply(x, y) { \n  if (x * y > Number.MAX_VALUE) { \n    return (\"Process as Infinity\"); \n  } \n  return (x * y); \n} \n\n console.log(multiply(1.7976931348623157e+308, 1)); \n // expected output: 1.7976931348623157e+308 \n\n console.log(multiply(1.7976931348623157e+308, 2)); \n// expected output: \"Process as Infinity\""
+            },
+            "MIN_VALUE": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/MIN_VALUE",
+                "desc": "Returns the smallest number possible in JavaScript",
+                "code": "function multiply(x, y) { \n  if (x * y < Number.MIN_VALUE) { \n    return \"Process as -Infinity\"; \n  } \n  return (x * y); \n} \n\n console.log(multiply(5e-324, 1)); \n// expected output: 5e-324 \n\n console.log(multiply(-1.7976931348623157e+308, 2)); \n // expected output: Process as -Infinity"
+            },
+            "NEGATIVE_INFINITY": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/NEGATIVE_INFINITY",
+                "desc": "Represents negative infinity (returned on overflow)",
+                "code": "function checkNumber(smallNumber) { \n  if (smallNumber === Number.NEGATIVE_INFINITY) { \n    return 'Process number as -Infinity'; \n  } \n  return smallNumber; \n} \n\n console.log(checkNumber(-Number.MAX_VALUE)); \n// expected output: -1.7976931348623157e+308 \n\n console.log(checkNumber(-Number.MAX_VALUE * 2)); \n // expected output: \"Process number as -Infinity\""
+            },
+            "POSITIVE_INFINITY": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/POSITIVE_INFINITY",
+                "desc": "Represents infinity (returned on overflow)",
+                "code": "function checkNumber(bigNumber) { \n  if (bigNumber === Number.POSITIVE_INFINITY) { \n    return 'Process number as Infinity'; \n  } \n  return bigNumber; \n} \n\n console.log(checkNumber(Number.MAX_VALUE)); \n // expected output: 1.7976931348623157e+308 \n\n console.log(checkNumber(Number.MAX_VALUE * 2)); \n // expected output: Process number as Infinity"
+            },
+            "prototype": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/prototype",
+                "desc": "Allows you to add properties and methods to an object",
+                "code": "//Create a new number method that returns a number's half value: \n\n Number.prototype.myMethod = function() { \n    return this.valueOf() / 2; \n }; \n //Use the new method on a number: \n\n var n = 55; \n var x = n.myMethod();"
+            }
+        },
+        "Number Methods": {
+            "toExponential(x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/toExponential",
+                "desc": "Converts a number into an exponential notation",
+                "code": "function expo(x, f) { \n  return Number.parseFloat(x).toExponential(f); \n } \n\n console.log(expo(123456, 2)); \n// expected output: \"1.23e+5\" \n\nconsole.log(expo('123456')); \n// expected output: \"1.23456e+5\" \n\n console.log(expo('oink')); \n // expected output: \"NaN\""
+            },
+            "toFixed(x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/toFixed",
+                "desc": "Formats a number with x numbers of digits after the decimal point",
+                "code": "function financial(x) { \n  return Number.parseFloat(x).toFixed(2); \n} \n\nconsole.log(financial(123.456)); \n // expected output: \"123.46\" \n\n console.log(financial(0.004)); \n // expected output: \"0.00\" \n\n console.log(financial(\"1.23e+5\"));\n\n // expected output: \"123000.00\""
+            },
+            "toPrecision(x)": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/toPrecision",
+                "desc": "Formats a number to x length",
+                "code": ""
+            },
+            "toString()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/toString",
+                "desc": "Converts a Number object to a string",
+                "code": ""
+            },
+            "valueOf()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number/valueOf",
+                "desc": "Returns the primitive value of a Number object",
+                "code": ""
+            }
+        },
+        "String Properties": {
+            "constructor": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/Constructor",
+                "desc": "Returns the function that created the String object's prototype",
+                "code": ""
+            },
+            "length": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/Length",
+                "desc": "Returns the length of a string",
+                "code": ""
+            },
+            "prototype": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/Name",
+                "desc": "Allows you to add properties and methods to an object",
+                "code": ""
+            }
+        },
+        "String Methods": {
+            "charAt()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/charAt",
+                "desc": "Returns the character at the specified index",
+                "code": ""
+            },
+            "charCodeAt()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/charCodeAt",
+                "desc": "Returns the Unicode of the character at the specified index",
+                "code": ""
+            },
+            "concat()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/concat",
+                "desc": "Joins two or more strings, and returns a copy of the joined strings",
+                "code": ""
+            },
+            "fromCharCode()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/fromCharCode",
+                "desc": "Converts Unicode values to characters",
+                "code": ""
+            },
+            "indexOf()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/indexOf",
+                "desc": "Returns the position of the first found occurrence of a specified value in a string",
+                "code": ""
+            },
+            "lastIndexOf()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/lastIndexOf",
+                "desc": "Returns the position of the last found occurrence of a specified value in a string",
+                "code": ""
+            },
+            "match()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/match",
+                "desc": "Searches for a match between a regular expression and a string, and returns the matches",
+                "code": ""
+            },
+            "replace()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/replace",
+                "desc": "Searches for a match between a substring (or regular expression) and a string, and replaces the matched substring with a new substring",
+                "code": ""
+            },
+            "search()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/search",
+                "desc": "Searches for a match between a regular expression and a string, and returns the position of the match"
+            },
+            "slice()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/slice",
+                "desc": "Extracts a part of a string and returns a new string",
+                "code": ""
+            },
+            "split()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/split",
+                "desc": "Splits a string into an array of substrings",
+                "code": ""
+            },
+            "substr()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/substr",
+                "desc": "Extracts the characters from a string, beginning at a specified start position, and through the specified number of character",
+                "code": ""
+            },
+            "substring()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/substring",
+                "desc": "Extracts the characters from a string, between two specified indices",
+                "code": ""
+            },
+            "toLowerCase()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/toLowerCase",
+                "desc": "Converts a string to lowercase letters",
+                "code": ""
+            },
+            "toUpperCase()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/toUpperCase",
+                "desc": "Converts a string to uppercase letters",
+                "code": ""
+            },
+            "valueOf()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/valueOf",
+                "desc": "Returns the primitive value of a String object",
+                "code": ""
+            }
+        },
+        "Global Methods": {
+            "decodeURI()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/decodeURI",
+                "desc": "Decodes a URI",
+                "code": ""
+            },
+            "decodeURIComponent()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/decodeURIComponent",
+                "desc": "Decodes a URI component",
+                "code": ""
+            },
+            "encodeURI()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/encodeURI",
+                "desc": "Encodes a URI",
+                "code": ""
+            },
+            "encodeURIComponent()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/encodeURIComponent",
+                "desc": "Encodes a URI component",
+                "code": ""
+            },
+            "escape()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Functions?redirectlocale=en-US&redirectslug=Core_JavaScript_1.5_Guide%2FFunctions#escape_and_unescape_functions",
+                "desc": "Encodes a string",
+                "code": ""
+            },
+            "eval()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/eval",
+                "desc": "Evaluates a string and executes it as if it was script code",
+                "code": ""
+            },
+            "isFinite()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/isFinite",
+                "desc": "Determines whether a value is a finite, legal number",
+                "code": ""
+            },
+            "isNaN()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/isNaN",
+                "desc": "Determines whether a value is an illegal number",
+                "code": ""
+            },
+            "Number()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Number",
+                "desc": "Converts an object's value to a number",
+                "code": ""
+            },
+            "parseFloat()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/parseInt",
+                "desc": "Parses a string and returns an integer",
+                "code": ""
+            },
+            "String()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String",
+                "desc": "Converts an object's value to a string",
+                "code": ""
+            },
+            "unescape()": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Functions?redirectlocale=en-US&redirectslug=Core_JavaScript_1.5_Guide%2FFunctions#escape_and_unescape_functions",
+                "desc": "Decodes an encoded string",
+                "code": ""
+            }
+        },
+        "Date Properties": {
+            "constructor": {
+                "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date/constructor",
+                "desc": "Returns the function that created the Date object's prototype",
+                "code": ""
+            },
+            "prototype": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/prototype",
+                "desc": "Allows you to add properties and methods to an object",
+                "code": ""
+            }
+        },
+        "dateMethods": {
+            "getDate()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/getDate",
+                "desc": "Returns the day of the month (from 1-31)",
+                "code": ""
+            },
+            "getDay()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/getDay",
+                "desc": "Returns the day of the week (from 0-6)",
+                "code": ""
+            },
+            "getFullYear()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/getFullYear",
+                "desc": "Returns the year (four digits)",
+                "code": ""
+            },
+            "getHours()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/getHours",
+                "desc": "Returns the hour (from 0-23)",
+                "code": ""
+            },
+            "getMinutes()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/getMinutes",
+                "desc": "Returns the minutes (from 0-59)",
+                "code": ""
+            },
+            "getMonth()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/getMonth",
+                "desc": "Returns the month (from 0-11)",
+                "code": ""
+            },
+            "getSeconds()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/getSeconds",
+                "desc": "Returns the seconds (from 0-59)",
+                "code": ""
+            },
+            "getTime()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/getTime",
+                "desc": "Returns the number of milliseconds since midnight Jan 1, 1970",
+                "code": ""
+            },
+            "getTimezoneOffset()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset",
+                "desc": "Returns the time difference between GMT and local time, in minutes",
+                "code": ""
+            },
+            "getUTCDate()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/getUTCDate",
+                "desc": "Returns the day of the month, according to universal time (from 1-31)",
+                "code": ""
+            },
+            "getUTCDay()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/getUTCDay",
+                "desc": "Returns the day of the week, according to universal time (from 0-6)",
+                "code": ""
+            },
+            "getUTCFullYear()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/getUTCFullYear",
+                "desc": "Returns the year, according to universal time (four digits)",
+                "code": ""
+            },
+            "getUTCHours()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/getUTCHours",
+                "desc": "Returns the hour, according to universal time (from 0-23)",
+                "code": ""
+            },
+            "getUTCMilliseconds()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/getUTCMilliseconds",
+                "desc": "Returns the milliseconds, according to universal time (from 0-999)",
+                "code": ""
+            },
+            "getUTCMinutes()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/getUTCMinutes",
+                "desc": "Returns the minutes, according to universal time (from 0-59)",
+                "code": ""
+            },
+            "getUTCMonth()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/getUTCMonth",
+                "desc": "Returns the month, according to universal time (from 0-11)",
+                "code": ""
+            },
+            "getUTCSeconds()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/parse",
+                "desc": "Parses a date string and returns the number of milliseconds since midnight of January 1, 1970",
+                "code": ""
+            },
+            "setDate()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/setDate",
+                "desc": "Sets the day of the month of a date object",
+                "code": ""
+            },
+            "setFullYear()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/setFullYear",
+                "desc": "Sets the year (four digits) of a date object",
+                "code": ""
+            },
+            "setHours()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/setHours",
+                "desc": "Sets the hour of a date object",
+                "code": ""
+            },
+            "setMilliseconds()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/setMilliseconds",
+                "desc": "Sets the milliseconds of a date object",
+                "code": ""
+            },
+            "setMinutes()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/setMinutes",
+                "desc": "Set the minutes of a date object",
+                "code": ""
+            },
+            "setMonth()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/setMonth",
+                "desc": "Sets the month of a date object",
+                "code": ""
+            },
+            "setSeconds()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/setSeconds",
+                "desc": "Sets the seconds of a date object",
+                "code": ""
+            },
+            "setTime()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/setTime",
+                "desc": "Sets a date and time by adding or subtracting a specified number of milliseconds to/from midnight January 1, 1970",
+                "code": ""
+            },
+            "setUTCDate()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/setUTCDate",
+                "desc": "Sets the day of the month of a date object, according to universal time",
+                "code": ""
+            },
+            "setUTCFullYear()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/setUTCFullYear",
+                "desc": "Sets the year of a date object, according to universal time (four digits)",
+                "code": ""
+            },
+            "setUTCHours()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/setUTCHours",
+                "desc": "Sets the hour of a date object, according to universal time",
+                "code": ""
+            },
+            "setUTCMilliseconds()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/setUTCMilliseconds",
+                "desc": "Sets the milliseconds of a date object, according to universal time",
+                "code": ""
+            },
+            "setUTCMinutes()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/setUTCMonth",
+                "desc": "Sets the month of a date object, according to universal time",
+                "code": ""
+            },
+            "setUTCSeconds()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/setUTCSeconds",
+                "desc": "Set the seconds of a date object, according to universal time",
+                "code": ""
+            },
+            "toDateString()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/toDateString",
+                "desc": "Converts the date portion of a Date object into a readable string",
+                "code": ""
+            },
+            "toISOString()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/toISOString",
+                "desc": "Returns the date as a string, using the ISO standard",
+                "code": ""
+            },
+            "toJSON()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/toJSON",
+                "desc": "Returns the date as a string, formated as a JSON date",
+                "code": ""
+            },
+            "toLocaleDateString()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/toLocaleDateString",
+                "desc": "Returns the date portion of a Date object as a string, using locale conventions",
+                "code": ""
+            },
+            "toLocaleTimeString()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString",
+                "desc": "Returns the time portion of a Date object as a string, using locale conventions",
+                "code": ""
+            },
+            "toLocaleString()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/toLocaleString",
+                "desc": "Converts a Date object to a string, using locale conventions",
+                "code": ""
+            },
+            "toString()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/toString",
+                "desc": "Converts a Date object to a string",
+                "code": ""
+            },
+            "toTimeString()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/toTimeString",
+                "desc": "Converts the time portion of a Date object to a string",
+                "code": ""
+            },
+            "toUTCString()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/toUTCString",
+                "desc": "Converts a Date object to a string, according to universal time",
+                "code": ""
+            },
+            "UTC()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/UTC",
+                "desc": "Returns the number of milliseconds in a date string since midnight of January 1, 1970, according to universal time",
+                "code": ""
+            },
+            "valueOf()": {
+                "href": "https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/valueOf",
+                "desc": "Returns the primitive value of a Date object",
+                "code": ""
+            }
+        }
+    },
+    "PHP" : {
+       "Array Functions" : {
+
+       },
+       "Array Constants" : {
+
+       },
+       "Filter Functions" : {
+
+       },
+       "Filters" : {
+
+       },
+       "String Functions" : {
+
+       },
+       "String Constants" : {
+
+       },
+       "Handling Functions" : {
+
+       },
+       "HTTP Functions" : {
+
+       },
+       "Math Constants" : {
+
+        },
+       "Math Functions" : {
+
+       },
+       "Date/Time Functions" : {
+
+       },
+       "Date/Time Constants" : {
+           
+       }
+    }
+}
