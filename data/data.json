@@ -4,7 +4,7 @@
             "constructor": {
                 "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/Constructor",
                 "desc": "The Function constructor creates a new Function object. Calling the constructor directly can create functions dynamically, but suffers from security and similar (but far less significant) performance issues similar to eval. However, unlike eval, the Function constructor allows executing code in the global scope, prompting better programming habits and allowing for more efficient code minification.",
-                "code": "\rvar sum = new Function('a', 'b', 'return a + b');\n console.log(sum(2, 6));\n // expected output: 8"
+                "code": "var sum = new Function('a', 'b', 'return a + b');\n console.log(sum(2, 6));\n // expected output: 8"
             },
             "length": {
                 "href": "https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/Length",
@@ -667,42 +667,190 @@
             }
         }
     },
-    "PHP" : {
-       "Array Functions" : {
-
-       },
-       "Array Constants" : {
-
-       },
-       "Filter Functions" : {
-
-       },
-       "Filters" : {
-
-       },
-       "String Functions" : {
-
-       },
-       "String Constants" : {
-
-       },
-       "Handling Functions" : {
-
-       },
-       "HTTP Functions" : {
-
-       },
-       "Math Constants" : {
-
+    "PHP": {
+        "Array Functions": {
+            "array()": {
+                "href": "http://php.net/manual/en/function.array-change-key-case.php",
+                "desc": "Returns an array with all keys from array lowercased or uppercased. Numbered indices are left as is.",
+                "code": "\r\n$input_array = array(\"FirSt\" => 1, \"SecOnd\" => 4);\nprint_r(array_change_key_case($input_array, CASE_UPPER));\n\n"
+            },
+            "array_change_key_case()": {
+                "href": "http://php.net/manual/en/function.array-change-key-case.php",
+                "desc": "Returns an array with all keys from array lowercased or uppercased. Numbered indices are left as is.",
+                "code": "\r\n$input_array = array(\"FirSt\" => 1, \"SecOnd\" => 4);\nprint_r(array_change_key_case($input_array, CASE_UPPER));\n"
+            },
+            "array_chunk()": {
+                "href": "http://php.net/manual/en/function.array-chunk.php",
+                "desc": "Chunks an array into arrays with size elements. The last chunk may contain less than size elements.",
+                "code": "\r\n$input_array = array(\"a\", \"b\", \"c\", \"d\", \"e\");\nprint_r(array_chunk($input_array, 2));\nprint_r(array_chunk($input_array, 2, true));\n"
+            },
+            "array_combine()": {
+                "href": "http://php.net/manual/en/function.array-combine.php",
+                "desc": "Creates an array by using the values from the keys array as keys and the values from the values array as the corresponding values.",
+                "code": "\r\n$a = array(\"green\", \"red\", \"yellow\");\n$b = array(\"avocado\", \"apple\", \"banana\");\n$c = array_combine($a, $b);\n\nprint_r($c);\n"
+            },
+            "array_count_values()": {
+                "href": "http://php.net/manual/en/function.array-count-values.php",
+                "desc": "array_count_values() returns an array using the values of array as keys and their frequency in array as values.",
+                "code": "\r\n$array = array(1, \"hello\", 1, \"world\", \"hello\");\nprint_r(array_count_values($array));\n"
+            },
+            "array_diff()": {
+                "href": "http://php.net/manual/en/function.array-diff.php",
+                "desc": "Compares array1 against one or more other arrays and returns the values in array1 that are not present in any of the other arrays.",
+                "code": "\r\n$array1 = array(\"a\" => \"green\", \"red\", \"blue\", \"red\");\n$array2 = array(\"b\" => \"green\", \"yellow\", \"red\");\n$result = array_diff($array1, $array2);\n\nprint_r($result);\n"
+            },
+            "array_diff_assoc()": {
+                "href": "http://php.net/manual/en/function.array-diff-assoc.php",
+                "desc": "Compares array1 against array2 and returns the difference. Unlike array_diff() the array keys are also used in the comparison.",
+                "code": "\r\n$array1 = array(\"a\" => \"green\", \"b\" => \"brown\", \"c\" => \"blue\", \"red\");\n$array2 = array(\"a\" => \"green\", \"yellow\", \"red\");\n$result = array_diff_assoc($array1, $array2);\nprint_r($result);\n"
+            },
+            "array_diff_key()": {
+                "href": "http://php.net/manual/en/function.array-diff-key.php",
+                "desc": "Compares the keys from array1 against the keys from array2 and returns the difference. This function is like array_diff() except the comparison is done on the keys instead of the values.",
+                "code": "\r\n$array1 = array(\"blue\" => 1, \"red\" => 2, \"green\" => 3, \"purple\" => 4);\n$array2 = array(\"green\" => 5, \"yellow\" => 7, \"cyan\" => 8);\n\nvar_dump(array_diff_key($array1, $array2));\n"
+            },
+            "array_diff_uassoc()": {
+                "href": "http://php.net/manual/en/function.array-diff-uassoc.php",
+                "desc": "Compares array1 against array2 and returns the difference. Unlike array_diff() the array keys are used in the comparison.\nUnlike array_diff_assoc() a user supplied callback function is used for the indices comparison, not internal function.",
+                "code": "\r\nfunction key_compare_func($a, $b)\n{\n    if ($a === $b) {\n        return 0;\n    }\n    return ($a > $b)? 1:-1;\n}\n\n$array1 = array(\"a\" => \"green\", \"b\" => \"brown\", \"c\" => \"blue\", \"red\");\n$array2 = array(\"a\" => \"green\", \"yellow\", \"red\");\n$result = array_diff_uassoc($array1, $array2, \"key_compare_func\");\nprint_r($result);\n"
+            }
         },
-       "Math Functions" : {
-
-       },
-       "Date/Time Functions" : {
-
-       },
-       "Date/Time Constants" : {
-           
-       }
+        "Filter Functions": {
+            "filter_has_var()": {
+                "href": "http://php.net/manual/en/function.filter-has-var.php",
+                "desc": "Returns TRUE on success or FALSE on failure.",
+                "code": "\r\n$_GET[\"test\"] = 1;\necho filter_has_var(INPUT_GET, \"test\") ? \"Yes\" : \"No\";\n"
+            },
+            "filter_id()": {
+                "href": "http://php.net/manual/en/function.filter-id.php",
+                "desc": "ID of a filter on success or FALSE if filter doesn't exist.",
+                "code": "\r \n$filters = filter_list(); \nforeach($filters as $filter_name) { \n    echo $filter_name .\": \".filter_id($filter_name) .\"<br>\"; \n} \n "
+            },
+            "filter_input()": {
+                "href": "http://php.net/manual/en/function.filter-input.php",
+                "desc": "Value of the requested variable on success, FALSE if the filter fails, or NULL if the variable_name variable is not set. If the flag FILTER_NULL_ON_FAILURE is used, it returns FALSE if the variable is not set and NULL if the filter fails.",
+                "code": "\r\n$search_html = filter_input(INPUT_GET, \"search\", FILTER_SANITIZE_SPECIAL_CHARS);\n$search_url = filter_input(INPUT_GET, \"search\", FILTER_SANITIZE_ENCODED);\necho \"You have searched for $search_html.\\n\";\necho \"<a href=\"?search=$search_url\">Search again.</a>\";\n"
+            },
+            "filter_input_array()": {
+                "href": "http://php.net/manual/en/function.filter-input-array.php",
+                "desc": "This function is useful for retrieving many values without repetitively calling filter_input().",
+                "code": "\r\nerror_reporting(E_ALL | E_STRICT);\n/* data actually came from POST\n$_POST = array(\n    \"product_id\" => \"libgd<script>\",\n    \"component\"  => array(\"10\"),\n    \"version\"    => \"2.0.33\",\n    \"testarray\"  => array(\"2\", \"23\", \"10\", \"12\"),\n    \"testscalar\" => \"2\",\n);\n*/\n\n$args = array(\n    \"product_id\"   => FILTER_SANITIZE_ENCODED,\n    \"component\"    => array(\"filter\"    => FILTER_VALIDATE_INT,\n                            \"flags\"     => FILTER_REQUIRE_ARRAY, \n                            \"options\"   => array(\"min_range\" => 1, \"max_range\" => 10)\n                           ),\n    \"version\"      => FILTER_SANITIZE_ENCODED,\n    \"doesnotexist\" => FILTER_VALIDATE_INT,\n    \"testscalar\"   => array(\n                            \"filter\" => FILTER_VALIDATE_INT,\n                            \"flags\"  => FILTER_REQUIRE_SCALAR,\n                           ),\n    \"testarray\"    => array(\n                            \"filter\" => FILTER_VALIDATE_INT,\n                            \"flags\"  => FILTER_REQUIRE_ARRAY,\n                           )\n\n);\n\n$myinputs = filter_input_array(INPUT_POST, $args);\n\nvar_dump($myinputs);\necho \"\\n\";\n"
+            },
+            "filter_list()": {
+                "href": "http://php.net/manual/en/function.filter-list.php",
+                "desc": "Returns an array of names of all supported filters, empty array if there are no such filters. Indexes of this array are not filter IDs, they can be obtained with filter_id() from a name instead.",
+                "code": "\r\nprint_r(filter_list());\n"
+            },
+            "filter_var_array()": {
+                "href": "http://php.net/manual/en/function.filter-var-array.php",
+                "desc": "This function is useful for retrieving many values without repetitively calling filter_var().",
+                "code": "\r\nerror_reporting(E_ALL | E_STRICT);\n$data = array(\n    \"product_id\"    => \"libgd<script>\",\n    \"component\"     => \"10\",\n    \"versions\"      => \"2.0.33\",\n    \"estscalar\"    => array(\"2\", \"23\", \"10\", \"12\"),\n    \"testarray\"     => \"2\",\n);\n\n$args = array(\n    \"product_id\"   => FILTER_SANITIZE_ENCODED,\n    \"component\"    => array(\"filter\"    => FILTER_VALIDATE_INT,\n                            \"flags\"     => FILTER_FORCE_ARRAY, \n                            \"options\"   => array(\"min_range\" => 1, \"max_range\" => 10)\n                           ),\n    \"versions\"     => FILTER_SANITIZE_ENCODED,\n    \"doesnotexist\" => FILTER_VALIDATE_INT,\n    \"testscalar\"   => array(\n                            \"filter\" => FILTER_VALIDATE_INT,\n                            \"flags\"  => FILTER_REQUIRE_SCALAR,\n                           ),\n    \"testarray\"    => array(\n                            \"filter\" => FILTER_VALIDATE_INT,\n                            \"flags\"  => FILTER_FORCE_ARRAY,\n                           )\n\n);\n\n$myinputs = filter_var_array($data, $args);\n\nvar_dump($myinputs);\necho \"\\n\";\n"
+            },
+            "filter_var()": {
+                "href": "http://php.net/manual/en/function.filter-var.php",
+                "desc": "Returns the filtered data, or FALSE if the filter fails.",
+                "code": "\r\nvar_dump(filter_var(\"bob@example.com\", FILTER_VALIDATE_EMAIL));\nvar_dump(filter_var(\"http://example.com\", FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED));\n"
+            }
+        },
+        "String Functions": {
+            "addcslashes()": {
+                "href": "http://php.net/manual/en/function.addcslashes.php",
+                "desc": "Returns a string with backslashes before characters that are listed in charlist parameter.",
+                "code": "\r\n$escaped = addcslashes($not_escaped, \"\\0..\\37!@\\177..\\377\");\n"
+            },
+            "addslashes()": {
+                "href": "http://php.net/manual/en/function.addslashes.php",
+                "desc": "Returns a string with backslashes added before characters that need to be escaped. These characters are:\nsingle quote (')\ndouble quote (\")\n backslash (\\) \n NUL (the NUL byte)",
+                "code": "\r\n$str = \"Is your name O'Reilly?\";\n\n// Outputs: Is your name O\\'Reilly?\necho addslashes($str);\n"
+            },
+            "bin2hex()": {
+                "href": "http://php.net/manual/en/function.bin2hex.php",
+                "desc": "Returns an ASCII string containing the hexadecimal representation of str. The conversion is done byte-wise with the high-nibble first.",
+                "code": "\r \nfunction hex_encode ($email_address)    { \n        $encoded = bin2hex(\"$email_address\"); \n        $encoded = chunk_split($encoded, 2, \"%\"); \n        $encoded = \"%\" . substr($encoded, 0, strlen($encoded) - 1); \n        return $encoded;    \n} \n "
+            },
+            "chop()": {
+                "href": "http://php.net/manual/en/function.chop.php",
+                "desc": "This function is an alias of: rtrim().",
+                "code": "\r\necho \"<pre>\";//without <pre> you cann\"t see desired output in your browser\necho chop(\"   Ramki   \");//right spaces are eliminated\necho chop(\"Ramkrishna\", \"a..z\");\necho \"</pre>\";\n"
+            },
+            "chr()": {
+                "href": "http://php.net/manual/en/function.chr.php",
+                "desc": "Returns a one-character string containing the character specified by ascii.",
+                "code": "\r\n$str = \"The string ends in escape: \";\n$str .= chr(27); /* add an escape character at the end of $str */\n\n/* Often this is more useful */\n\n$str = sprintf(\"The string ends in escape: %c\", 27);\n"
+            },
+            "chunk_split()": {
+                "href": "http://php.net/manual/en/function.chunk-split.php",
+                "desc": "Can be used to split a string into smaller chunks which is useful for e.g. converting base64_encode() output to match RFC 2045 semantics. It inserts end every chunklen characters.",
+                "code": "\r\n// format $data using RFC 2045 semantics\n$new_string = chunk_split(base64_encode($data));\n"
+            },
+            "convert_cyr_string()": {
+                "href": "http://php.net/manual/en/function.convert-cyr-string.php",
+                "desc": "Converts from one Cyrillic character set to another.",
+                "code": "\r\nfunction convert_cyr_array($array,$from,$to){\n    foreach($array as $key=>$value){\n        if(is_array($value)) {\n            $result[$key] = convert_cyr_array($value,$from,$to);\n            continue;\n        }\n        $result[$key] = convert_cyr_string($value,$from,$to);\n    }\n    return $result;\n}\n"
+            },
+            "convert_uudecode()": {
+                "href": "http://php.net/manual/en/function.convert-uudecode.php",
+                "desc": "convert_uudecode() decodes a uuencoded string.",
+                "code": "\r\necho convert_uudecode(\"+22!L;W9E(%!(4\\\"$`\\n`\");\n"
+            },
+            "convert_uuencode()": {
+                "href": "http://php.net/manual/en/function.convert-uuencode.php",
+                "desc": "convert_uuencode() encodes a string using the uuencode algorithm.",
+                "code": "\r\n$some_string = \"test\\ntext text\\r\\n\";\n\necho convert_uuencode($some_string);\n"
+            },
+            "count_chars()": {
+                "href": "http://php.net/manual/en/function.count-chars.php",
+                "desc": "Counts the number of occurrences of every byte-value (0..255) in string and returns it in various ways.",
+                "code": "\r\n$data = \"Two Ts and one F.\";\n\nforeach (count_chars($data, 1) as $i => $val) {\n   echo \"There were $val instance(s) of \\\"\" , chr($i) , \"\\\" in the string.\\n\";\n}\n"
+            }
+        },
+        "Filesystem Functions": {
+            "basename()": {
+                "href": "http://php.net/manual/en/function.basename.php",
+                "desc": "Given a string containing the path to a file or directory, this function will return the trailing name component.",
+                "code": "\r\necho \"1) \".basename(\"/etc/sudoers.d\", \".d\").PHP_EOL;\necho \"2) \".basename(\"/etc/sudoers.d\").PHP_EOL;\necho \"3) \".basename(\"/etc/passwd\").PHP_EOL;\necho \"4) \".basename(\"/etc/\").PHP_EOL;\necho \"5) \".basename(\".\").PHP_EOL;\necho \"6) \".basename(\"/\");\n"
+            },
+            "chgrp()": {
+                "href": "http://php.net/manual/en/function.chgrp.php",
+                "desc": "Attempts to change the group of the file filename to group.",
+                "code": "\r\n$filename = \"shared_file.txt\";\n$format = \"%s\"s Group ID @ %s: %d\\n\";\nprintf($format, $filename, date(\"r\"), filegroup($filename));\nchgrp($filename, 8);\nclearstatcache(); // do not cache filegroup() results\nprintf($format, $filename, date(\"r\"), filegroup($filename));\n"
+            }
+        },
+        "HTTP Functions": {
+            "header()": {
+                "href": "http://php.net/manual/en/function.header.php",
+                "desc": "header() is used to send a raw HTTP header. See the » HTTP/1.1 specification for more information on HTTP headers.",
+                "code": "\r\n// We\"ll be outputting a PDF\nheader(\"Content-Type: application/pdf\");\n\n// It will be called downloaded.pdf\nheader(\"Content-Disposition: attachment; filename=\"downloaded.pdf\"\");\n\n// The PDF source is in original.pdf\nreadfile(\"original.pdf\");\n"
+            },
+            "headers_list()": {
+                "href": "http://php.net/manual/en/function.headers-list.php",
+                "desc": "headers_list() will return a list of headers to be sent to the browser / client. To determine whether or not these headers have been sent yet, use headers_sent().",
+                "code": "\r\n\n/* setcookie() will add a response header on its own */\nsetcookie(\"foo\", \"bar\");\n\n/* Define a custom response header\n   This will be ignored by most clients */\nheader(\"X-Sample-Test: foo\");\n\n/* Specify plain text content in our response */\nheader(\"Content-type: text/plain\");\n\n/* What headers are going to be sent? */\nvar_dump(headers_list());\n\n"
+            }
+        },
+        "Math Functions": {
+            "abs()": {
+                "href": "http://php.net/manual/en/function.abs.php",
+                "desc": "Returns the absolute value of number.",
+                "code": "\r\necho abs(-4.2); // 4.2 (double/float)\necho abs(5);    // 5 (integer)\necho abs(-5);   // 5 (integer)\n"
+            },
+            "exp()": {
+                "href": "http://php.net/manual/en/function.exp.php",
+                "desc": "Returns e raised to the power of arg.",
+                "code": "\r\necho exp(12) . \"\\n\";\necho exp(5.7);\n"
+            }
+        },
+        "Date/Time Functions": {
+            "checkdate()": {
+                "href": "http://php.net/manual/en/function.checkdate.php",
+                "desc": "Checks the validity of the date formed by the arguments. A date is considered valid if each parameter is properly defined.",
+                "code": "\r\nvar_dump(checkdate(12, 31, 2000));\nvar_dump(checkdate(2, 29, 2001));\n"
+            },
+            "time()": {
+                "href": "http://php.net/manual/en/function.time.php",
+                "desc": "Returns the current time measured in the number of seconds since the Unix Epoch (January 1 1970 00:00:00 GMT).",
+                "code": "\r\n$nextWeek = time() + (7 * 24 * 60 * 60);\n                   // 7 days; 24 hours; 60 mins; 60 secs\necho \"Now:       \". date(\"Y-m-d\") .\"\\n\";\necho \"Next Week: \". date(\"Y-m-d\", $nextWeek) .\"\\n\";\n// or using strtotime():\necho \"Next Week: \". date(\"Y-m-d\", strtotime(\"+1 week\")) .\"\\n\";\n"
+            }
+        }
     }
 }

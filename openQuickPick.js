@@ -8,18 +8,18 @@ var c_json;
 var lang;
 var category_sel;
 
-var contentList;
-var languageList;
-var categoryList;
+var contentList = [];
+var languageList = [];
+var categoryList = [];
 
 function selLanguage() {
-    languageList = getLanguagesList();
+    languageList = getLanguagesList(data);
     vscode.window.showQuickPick(languageList, {}).then(getCategory);
 }
 exports.selLanguage = selLanguage;
 
-function getLanguagesList() {
-    return Object.keys(data);
+function getLanguagesList(json) {
+    return Object.keys(json);
 }
 
 function getData(language){
@@ -68,30 +68,35 @@ function getContents(userChoice) {
     vscode.window.showInformationMessage(userChoice);    
     if (userChoice) {
         category_sel = userChoice;
+        
         c_json = getCategoryData(json, userChoice); 
         
         if(userChoice === 'BACK') //Back 방법 1 json파일에 써놓아서 비교
             {
-                vscode.window.showQuickPick(languageList, {}).then(getCategory);
+              console.log();
+              vscode.window.showQuickPick(languageList, {}).then(getCategory);
             }
         else{
             contentList = getContentList(c_json);
+            selContents(contentList);
             };
-        selContents(contentList);
     }
 }
 
 
 function selContents(con_list) {
+    
     con_list.push('BACK'); //Back 방법 2 quickpick에 넣어놓고 비교하기
     vscode.window.showQuickPick(con_list, {}).then(openCheatSheet);
 }
 
 function openCheatSheet(userChoice) {
+    
     if (userChoice) {
         if(userChoice === 'BACK')
         {
-                vscode.window.showQuickPick(categoryList, {}).then(getContents);
+            console.log(categoryList);
+            vscode.window.showQuickPick(categoryList, {}).then(getContents);
         }
         else
         {

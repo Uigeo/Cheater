@@ -1,66 +1,13 @@
-# cheater README
+# Cheater
 
-This is the README for your extension "cheater". After writing up a brief description, we recommend including the following sections.
-
-## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
+## System Definition
+“Cheater" helps programmers with providing ‘cheat sheet’ without leaving their editors. It helps to reduce syntax error and save time to finding grammatical rules and useful functions on cheating sheet.
 
 
-\!\[feature X\]\(images/feature-x.png\)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+\!\[feature X\]\(desc.gif\)
 
-## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
 
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+## Overview
+In programming world, there are also many kind of language just like real world. Each languages have special philosophy and features. It make the language powerful and effective to some specific programing, but it also make some confusions to programmers because programmers have to use many different kind of languages to satisfy specific requirement of the program. To avoid confusion, programmers has made ‘cheating sheet’. We can assure the correct grammar of the programing language, using this sheet.  However, programmers have to leave their editor to see the sheet. It takes some time. To programming, time is very precious resource. If we can see ‘cheating sheet’  on our editor, we don’t need to leave our editor. It could save many time.
